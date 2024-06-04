@@ -16,13 +16,17 @@ export const Screen = ({ title, children }: ScreenProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    paddingTop: 120,
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     paddingHorizontal: 14
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
+    color: 'white',
+    fontFamily: 'courier',
+    marginBottom: 30
   },
 })

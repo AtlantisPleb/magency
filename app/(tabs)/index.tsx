@@ -1,3 +1,4 @@
+import { Screen } from '@/components/Screen';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
@@ -7,7 +8,7 @@ export default function CastScreen() {
   const isSpellShort = spell.length < 10;
 
   return (
-    <View style={styles.container}>
+    <Screen title="Cast spells">
       <TextInput
         multiline
         numberOfLines={3}
@@ -24,7 +25,7 @@ export default function CastScreen() {
       >
         <Text style={styles.submitButtonText}>Cast</Text>
       </TouchableOpacity>
-    </View>
+    </Screen>
   );
 }
 
