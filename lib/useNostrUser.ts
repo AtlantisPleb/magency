@@ -2,17 +2,34 @@ import 'text-encoding-polyfill';
 // import { NDKEvent } from "@nostr-dev-kit/ndk";
 import { useEffect } from "react";
 import { useNDK } from "./useNDK";
-import {generatePrivateKey, getPublicKey} from 'nostr-tools_1_1_1'
+import { generatePrivateKey, getPublicKey } from 'nostr-tools_1_1_1'
+import { NDKEvent, NDKPrivateKeySigner } from '@nostr-dev-kit/ndk';
+
+global.crypto = require('expo-crypto')
 
 export function useNostrUser() {
   const ndk = useNDK()
-  const makeauser = async () => {
-
-    console.log("TRYING TO MAKE KEY")
+  const makeauser = () => {
     let sk = generatePrivateKey() // `sk` is a hex string
-    // console.log("sk", sk)
     let pk = getPublicKey(sk) // `pk` is a hex string
     console.log(`You are ${pk}`)
+    return { sk, pk }
+  }
+
+  const connectAndPublish = async (ndk: any) => {
+    ndk.pool?.on("relay:connecting", (relay: any) => {
+      console.log("🪄 MAIN POOL Connecting to relay", relay.url);
+    });
+
+    ndk.pool?.on("relay:connect", (relay: any) => {
+      console.log("✅ MAIN POOL Connected to relay", relay.url);
+    });
+    await ndk.connect(2000);
+    const ndkEvent = new NDKEvent(ndk);
+    ndkEvent.kind = 1;
+    ndkEvent.content = "Hello, world!";
+    ndkEvent.publish();
+    console.log("Published?")
   }
 
   const allthis = async () => {
@@ -66,20 +83,9 @@ export function useNostrUser() {
 
   useEffect(() => {
     if (!ndk) return
-
-    makeauser()
-    // allthis()
-
-
-
-    // const ndkEvent = new NDKEvent(ndk);
-    // ndkEvent.kind = 1;
-    // ndkEvent.content = "Hello, world!";
-    // ndkEvent.publish(); // This will trigger the extension to ask the user to confirm signing.
-
-    // const eventsPerRelay = new Map<string, number>();
-    // const eventIds = new Set();
-
-    console.log("Lets play with NDK")
+    const { sk } = makeauser()
+    ndk.signer = new NDKPrivateKeySigner(sk)
+    console.log("NDK signer initialized:", ndk.signer)
+    connectAndPublish(ndk)
   }, [ndk])
 }
