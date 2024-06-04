@@ -34,7 +34,7 @@ export function useNostrUser() {
 
     const ndkEvent = new NDKEvent(ndk);
     ndkEvent.kind = 1;
-    ndkEvent.content = "Is this thing on?!?!?!";
+    ndkEvent.content = "Hello world!!!!!!!";
     console.log("Publishing...");
     const publishedRelays = await ndkEvent.publish();
     console.log("Published", publishedRelays.size);
