@@ -47,10 +47,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     color: 'white',
     fontSize: 18,
-    lineHeight: 23,
-    paddingTop: 18,
+    paddingVertical: 18,
     paddingHorizontal: 24,
-    paddingBottom: 20,
     fontFamily: 'Courier'
   },
   submitButton: {
