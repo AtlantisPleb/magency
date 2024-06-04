@@ -8,7 +8,7 @@ Command your AI agent swarm on the go!
 
 # Tech stack
 - [React Native](https://reactnative.dev/) via [Expo](https://expo.dev/) - Cross-platform app
-- [Nostr](https://github.com/nostr-protocol/nostr) - Decentralized backend
+- [Nostr](https://github.com/nostr-protocol/nostr) via [NDK](https://github.com/nostr-dev-kit/ndk) - Decentralized backend
 
 # Agent algorithm
 
