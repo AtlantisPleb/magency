@@ -15,7 +15,7 @@ interface State {
   setUserSecret: (secret: string) => void
 }
 
-export const useStore = create<any>(
+export const useStore = create<State>()(
   persist(
     (set) => ({
       userPubkey: null,
