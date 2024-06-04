@@ -1,8 +1,10 @@
 import { Screen } from '@/components/Screen';
+import { useNostrUser } from '@/lib/useNostrUser';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function CastScreen() {
+  useNostrUser()
   const [spell, setSpell] = useState('');
 
   const isSpellShort = spell.length < 10;
