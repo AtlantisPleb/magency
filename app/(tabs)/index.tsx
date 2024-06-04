@@ -1,15 +1,26 @@
 import { Screen } from '@/components/Screen';
+import { useNDK } from '@/lib/useNDK';
 import { useNostrUser } from '@/lib/useNostrUser';
+import { NDKEvent } from '@nostr-dev-kit/ndk';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
 export default function CastScreen() {
   useNostrUser()
+  const ndk = useNDK();
   const [spell, setSpell] = useState('What can you learn from the newest papers on arxiv?');
   const isSpellShort = spell.length < 10;
 
-  const submitIt = () => {
+  const submitIt = async () => {
+    if (!ndk) return
     console.log('submitting', spell);
+    const ndkEvent = new NDKEvent(ndk);
+    ndkEvent.kind = 1;
+    ndkEvent.content = "SPELL: " + spell;
+    console.log("Publishing...");
+
+    const publishedRelays = await ndkEvent.publish();
+    console.log("Submitted")
   }
 
   return (
