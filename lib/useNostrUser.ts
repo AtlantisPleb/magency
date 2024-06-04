@@ -1,10 +1,19 @@
 import 'text-encoding-polyfill';
-import { NDKEvent } from "@nostr-dev-kit/ndk";
+// import { NDKEvent } from "@nostr-dev-kit/ndk";
 import { useEffect } from "react";
 import { useNDK } from "./useNDK";
+import {generatePrivateKey, getPublicKey} from 'nostr-tools_1_1_1'
 
 export function useNostrUser() {
   const ndk = useNDK()
+  const makeauser = async () => {
+
+    console.log("TRYING TO MAKE KEY")
+    let sk = generatePrivateKey() // `sk` is a hex string
+    // console.log("sk", sk)
+    let pk = getPublicKey(sk) // `pk` is a hex string
+    console.log(`You are ${pk}`)
+  }
 
   const allthis = async () => {
     if (!ndk) return
@@ -58,7 +67,10 @@ export function useNostrUser() {
   useEffect(() => {
     if (!ndk) return
 
-    allthis()
+    makeauser()
+    // allthis()
+
+
 
     // const ndkEvent = new NDKEvent(ndk);
     // ndkEvent.kind = 1;
