@@ -1,8 +1,9 @@
 import 'text-encoding-polyfill';
 import { useEffect, useMemo, useRef } from "react";
 import { useNDK } from "./useNDK";
-import { generatePrivateKey, getPublicKey } from 'nostr-tools_1_1_1'
+import { generatePrivateKey, getPublicKey } from 'nostr-tools_1_1_1';
 import { NDKEvent, NDKPrivateKeySigner } from '@nostr-dev-kit/ndk';
+import { useStore } from '@/lib/store';
 
 global.crypto = require('expo-crypto');
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -10,12 +11,19 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 export function useNostrUser() {
   const ndk = useNDK();
   const isConnectedRef = useRef(false);
+  const setUserPubkey = useStore(state => (pubkey) => state.userPubkey = pubkey);
+  const setUserSecret = useStore(state => (secret) => state.userSecret = secret);
 
   const { sk, pk } = useMemo(() => {
     console.log("Generating user...");
     const sk = generatePrivateKey(); // `sk` is a hex string
     const pk = getPublicKey(sk); // `pk` is a hex string
     console.log(`You are ${pk}`);
+
+    // Setting the public and private keys in Zustand store
+    setUserPubkey(pk);
+    setUserSecret(sk);
+
     return { sk, pk };
   }, []); // Empty dependency array ensures it runs only once
 
@@ -41,7 +49,7 @@ export function useNostrUser() {
 
     // const publishedRelays = await ndkEvent.publish();
     // console.log("Published", publishedRelays.size);
-  }
+  };
 
   useEffect(() => {
     if (!ndk) return;
