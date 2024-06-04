@@ -32,15 +32,15 @@ export function useNostrUser() {
     });
 
     await ndk.connect(5000);
-    await sleep(3000);
+    // await sleep(3000);
 
-    const ndkEvent = new NDKEvent(ndk);
-    ndkEvent.kind = 1;
-    ndkEvent.content = "Hello world!!!!!!!";
-    console.log("Publishing...");
+    // const ndkEvent = new NDKEvent(ndk);
+    // ndkEvent.kind = 1;
+    // ndkEvent.content = "Hello world!!!!!!!";
+    // console.log("Publishing...");
 
-    const publishedRelays = await ndkEvent.publish();
-    console.log("Published", publishedRelays.size);
+    // const publishedRelays = await ndkEvent.publish();
+    // console.log("Published", publishedRelays.size);
   }
 
   useEffect(() => {
