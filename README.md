@@ -31,4 +31,18 @@ Magency is the first application to use IGE in agents let loose across the inter
 7. Repeat: Repeat steps 4-6 for a specified number of iterations or until a desired outcome is achieved.
 8. Visualization: Present the results to the user in a user-friendly format, such as a summary of key findings or insights from the explored websites.
 
+## IGE Prompts
+```
+You are an agent [...]
+```
+
+```
+You will be prompted to perform systematic exploration in the style of Go-Explore.
+An archive will be maintained of interesting states found.
+You will be prompted to first reason about your plan and then:
+- Select a state from the archive that is the most promising, i.e., likely to lead to a solution or more novel states.
+- Explore from states intelligently, by picking new actions.
+- For each new state, you will be asked to decide if the state is interestingly new and should be added to the archive.
+```
+
 ![school](https://github.com/AtlantisPleb/magency/assets/14167547/e2193a2f-e5e1-43b4-b6cf-67e1d335d524)
