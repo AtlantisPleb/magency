@@ -11,12 +11,16 @@ export default function CastScreen() {
         style={{
           backgroundColor: '#0a0a0a',
           width: '100%',
+          textAlign: "center",
           borderRadius: 15,
           borderColor: '#444',
           borderWidth: 1,
           color: 'white',
           fontSize: 18,
-          padding: 18,
+          lineHeight: 23,
+          paddingTop: 18,
+          paddingHorizontal: 24,
+          paddingBottom: 22,
           fontFamily: 'Courier'
         }} />
     </View>
