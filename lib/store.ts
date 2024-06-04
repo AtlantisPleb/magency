@@ -53,6 +53,14 @@ export const useStore = create<State>()(
           enableOutboxModel: true,
         });
 
+        ndk.pool?.on("relay:connecting", (relay) => {
+          console.log("🪄 MAIN POOL Connecting to relay", relay.url);
+        });
+
+        ndk.pool?.on("relay:connect", (relay) => {
+          console.log("✅ MAIN POOL Connected to relay", relay.url);
+        });
+
         ndk.signer = new NDKPrivateKeySigner(sk);
 
         set({ ndkInstance: ndk });
