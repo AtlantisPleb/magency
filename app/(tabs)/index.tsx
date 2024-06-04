@@ -1,19 +1,30 @@
+import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function CastScreen() {
+  const [spell, setSpell] = useState('');
+
+  const isSpellShort = spell.length < 10;
+
   return (
     <View style={styles.container}>
       <TextInput
-        multiline={true}
+        multiline
         numberOfLines={3}
         spellCheck={false}
         autoCorrect={false}
         style={styles.input}
+        onChangeText={setSpell}
+        value={spell}
       />
-      <TouchableOpacity activeOpacity={0.8} style={styles.submitButton}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={[styles.submitButton, isSpellShort && styles.submitButtonDisabled]}
+        disabled={isSpellShort}
+      >
         <Text style={styles.submitButtonText}>Cast</Text>
       </TouchableOpacity>
-    </View >
+    </View>
   );
 }
 
@@ -31,7 +42,6 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: '#0a0a0a',
     width: '100%',
-    textAlign: "center",
     borderRadius: 15,
     borderColor: '#444',
     borderWidth: 1,
@@ -48,6 +58,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.1)',
     padding: 24,
     borderRadius: 4
+  },
+  submitButtonDisabled: {
+    opacity: 0.5
   },
   submitButtonText: {
     color: 'white',
