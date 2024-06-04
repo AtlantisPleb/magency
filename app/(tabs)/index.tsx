@@ -6,8 +6,11 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 export default function CastScreen() {
   useNostrUser()
   const [spell, setSpell] = useState('');
-
   const isSpellShort = spell.length < 10;
+
+  const submitIt = () => {
+    console.log('submitting', spell);
+  }
 
   return (
     <Screen title="Cast spells">
@@ -24,6 +27,7 @@ export default function CastScreen() {
         activeOpacity={0.8}
         style={[styles.submitButton, isSpellShort && styles.submitButtonDisabled]}
         disabled={isSpellShort}
+        onPress={submitIt}
       >
         <Text style={styles.submitButtonText}>Cast</Text>
       </TouchableOpacity>
