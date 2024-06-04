@@ -10,7 +10,7 @@ Command your AI agent swarm on the go!
 - [React Native](https://reactnative.dev/) via [Expo](https://expo.dev/) - Cross-platform app
 - [Nostr](https://github.com/nostr-protocol/nostr) - Decentralized backend
 
-# Algorithm
+# Agent algorithm
 
 Agents use the new [Intelligent Go-Explore](https://x.com/jeffclune/status/1797541076024308135) (IGE) algorithm for smart exploration of the web.
 
