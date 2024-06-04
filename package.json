@@ -34,7 +34,8 @@
     "react-native-screens": "3.31.1",
     "react-native-web": "~0.19.10",
     "text-encoding-polyfill": "^0.6.7",
-    "expo-random": "~14.0.1"
+    "expo-random": "~14.0.1",
+    "expo-crypto": "~13.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
