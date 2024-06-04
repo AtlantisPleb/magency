@@ -9,5 +9,6 @@ Command your AI agent swarm on the go!
 
 # Tech stack
 - [React Native](https://reactnative.dev/) via [Expo](https://expo.dev/)
+- [Nostr](https://github.com/nostr-protocol/nostr)
 
 ![school](https://github.com/AtlantisPleb/magency/assets/14167547/e2193a2f-e5e1-43b4-b6cf-67e1d335d524)
