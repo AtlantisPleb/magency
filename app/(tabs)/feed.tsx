@@ -1,8 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 
-export default function CastScreen() {
+export default function FeedScreen() {
   return (
     <View style={styles.container}>
+
     </View>
   );
 }
