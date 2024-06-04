@@ -2,10 +2,12 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
-import { useNostr } from '@/lib/useNostr';
+import { useNDK } from '@/lib/useNDK';
+import { useNostrUser } from '@/lib/useNostrUser';
 
 export default function TabOneScreen() {
-  useNostr()
+  // useNDK()
+  useNostrUser()
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
