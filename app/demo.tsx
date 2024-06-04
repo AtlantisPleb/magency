@@ -1,11 +1,12 @@
-import { StyleSheet, View } from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native'
 
-export default function TabOneScreen() {
+export default function Demo() {
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={"light-content"} />
 
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
