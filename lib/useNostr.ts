@@ -1,3 +1,4 @@
+import 'text-encoding-polyfill'
 import { useEffect } from "react"
 import NDK from "@nostr-dev-kit/ndk";
 
