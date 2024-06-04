@@ -2,7 +2,7 @@ import 'text-encoding-polyfill';
 import { useEffect, useRef } from "react";
 import { useNDK } from "./useNDK";
 import { generatePrivateKey, getPublicKey } from 'nostr-tools_1_1_1';
-import { NDKEvent, NDKPrivateKeySigner } from '@nostr-dev-kit/ndk';
+import { NDKPrivateKeySigner } from '@nostr-dev-kit/ndk';
 import { useStore } from '@/lib/store';
 
 global.crypto = require('expo-crypto');
