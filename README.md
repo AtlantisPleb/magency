@@ -20,7 +20,12 @@ The Go-Explore algorithm, known for its success in solving complex problems like
 
 Magency is the first application to use IGE in agents let loose across the internet. What might happen?!
 
-# IGE implementation
+# IGE implementation - actual
+1. User Prompt: The user enters a prompt on the "Cast spells" tab of the Magency app, such as "What can you learn from the newest papers on arxiv?"
+2. A signed Nostr event is sent to the network via primarily our relay at wss://magency.nostr1.com - kind [TBD] specific for MAGENCY SPELL
+3. Magency service (NodeJS) is listening for those events and here's what the fuck it does:
+
+# IGE implementation - kinda
 
 1. User Prompt: The user enters a prompt on the "Cast spells" tab of the Magency app, such as "What can you learn from the newest papers on arxiv?"
 2. Web Scraping: Use Playwright to scrape relevant websites, such as arxiv.org, to fetch the latest papers and extract their content.
