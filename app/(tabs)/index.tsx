@@ -1,13 +1,16 @@
 import { Screen } from '@/components/Screen';
 import { useNostrUser } from '@/lib/useNostrUser';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
 export default function CastScreen() {
   useNostrUser()
-  const [spell, setSpell] = useState('');
-
+  const [spell, setSpell] = useState('What can you learn from the newest papers on arxiv?');
   const isSpellShort = spell.length < 10;
+
+  const submitIt = () => {
+    console.log('submitting', spell);
+  }
 
   return (
     <Screen title="Cast spells">
@@ -24,6 +27,7 @@ export default function CastScreen() {
         activeOpacity={0.8}
         style={[styles.submitButton, isSpellShort && styles.submitButtonDisabled]}
         disabled={isSpellShort}
+        onPress={submitIt}
       >
         <Text style={styles.submitButtonText}>Cast</Text>
       </TouchableOpacity>

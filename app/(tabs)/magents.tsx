@@ -1,25 +1,10 @@
-import { StyleSheet, View } from 'react-native';
+import { Screen } from '@/components/Screen';
+import { View } from 'react-native';
 
 export default function MagentsScreen() {
   return (
-    <View style={styles.container}>
-    </View>
+    <Screen title="Magents">
+      <View />
+    </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
