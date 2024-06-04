@@ -62,7 +62,7 @@ _heavily wip_
 
 1. **Magency Spell Cast Event**
    - **Kind:** `38000`
-   - **Description:** Event to signify the casting of a spell in Magency.
+   - **Description:** Event to signify the casting of a spell in Magency. Functionally similar to kind 1.
    - **Content:** User's input prompt (as a string).
 
 2. **Magency State Archive Event**

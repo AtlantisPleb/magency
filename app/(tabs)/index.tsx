@@ -15,8 +15,8 @@ export default function CastScreen() {
     if (!ndk) return
     console.log('submitting', spell);
     const ndkEvent = new NDKEvent(ndk);
-    ndkEvent.kind = 1;
-    ndkEvent.content = "SPELL: " + spell;
+    ndkEvent.kind = 38000;
+    ndkEvent.content = spell;
     console.log("Publishing...");
 
     const publishedRelays = await ndkEvent.publish();
