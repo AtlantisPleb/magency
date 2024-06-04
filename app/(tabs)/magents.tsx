@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native';
-import { Text, View } from '@/components/Themed';
+import { StyleSheet, View } from 'react-native';
 
-export default function TabTwoScreen() {
+export default function MagentsScreen() {
   return (
     <View style={styles.container}>
     </View>
