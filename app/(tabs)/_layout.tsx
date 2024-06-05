@@ -40,7 +40,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Cast Spell',
+          title: 'Wish',
           tabBarIcon: ({ color }) => <TabBarIcon name="magic" color={color} />,
           headerShown: false
         }}

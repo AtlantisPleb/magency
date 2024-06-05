@@ -8,7 +8,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 export default function CastScreen() {
   useNostrUser()
   const ndk = useNDK();
-  const [spell, setSpell] = useState('What can you learn from the newest papers on arxiv?');
+  const [spell, setSpell] = useState('Teach me cool stuff from the newest papers on arxiv.');
   const isSpellShort = spell.length < 10;
 
   const submitIt = async () => {
@@ -24,7 +24,7 @@ export default function CastScreen() {
   }
 
   return (
-    <Screen title="Cast spells">
+    <Screen title="Make a wish">
       <TextInput
         multiline
         numberOfLines={3}
@@ -40,7 +40,7 @@ export default function CastScreen() {
         disabled={isSpellShort}
         onPress={submitIt}
       >
-        <Text style={styles.submitButtonText}>Cast</Text>
+        <Text style={styles.submitButtonText}>Wish</Text>
       </TouchableOpacity>
     </Screen>
   );
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   input: {
+    marginTop: 16,
     backgroundColor: '#0a0a0a',
     width: '100%',
     borderRadius: 15,
@@ -70,10 +71,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier'
   },
   submitButton: {
-    marginTop: 25,
+    marginTop: 45,
     backgroundColor: 'rgba(255,255,255,0.1)',
-    padding: 24,
-    borderRadius: 4
+    padding: 22,
+    paddingHorizontal: 35,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.2)',
   },
   submitButtonDisabled: {
     opacity: 0.5
