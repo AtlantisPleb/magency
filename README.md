@@ -8,6 +8,7 @@ Command your AI agent swarm on the go!
 
 # Tech stack
 - [React Native](https://reactnative.dev/) via [Expo](https://expo.dev/) - Cross-platform app
+- Node.js backend service (see [magency-node](https://github.com/AtlantisPleb/magency-node) codebase)
 - [Nostr](https://github.com/nostr-protocol/nostr) via [NDK](https://github.com/nostr-dev-kit/ndk) - Decentralized backend
 
 # Agent algorithm
