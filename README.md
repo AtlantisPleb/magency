@@ -36,3 +36,5 @@ Magency is the first application to use IGE in agents let loose across the inter
 6. Update Archive: After taking the action, update the archive with any interesting new states discovered.
 7. Repeat: Repeat steps 4-6 for a specified number of iterations or until a desired outcome is achieved.
 8. Visualization: Present the results to the user in a user-friendly format, such as a summary of key findings or insights from the explored websites.
+
+![school](https://github.com/AtlantisPleb/magency/assets/14167547/e2193a2f-e5e1-43b4-b6cf-67e1d335d524)
