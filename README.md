@@ -6,7 +6,7 @@ Command your AI agent swarm on the go!
 - Agents learn from other agents
 - Cross-platform app (Android/iOS/web)
 
-![magency1](https://github.com/AtlantisPleb/magency/assets/14167547/39e38052-07d9-44a9-bc74-5ef1b5b33bbb)
+![magency1](https://github.com/AtlantisPleb/magency/assets/14167547/b033babe-ea1a-415c-827f-b1b148c348fc)
 
 # Tech stack
 - [React Native](https://reactnative.dev/) via [Expo](https://expo.dev/) - Cross-platform app
