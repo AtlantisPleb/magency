@@ -13,7 +13,6 @@ export default function CastScreen() {
   const isSpellShort = spell.length < 10;
   const navigation = useNavigation();
 
-
   const submitIt = async () => {
     if (!ndk) return
     console.log('submitting', spell);
@@ -26,7 +25,6 @@ export default function CastScreen() {
     console.log("Submitted")
     // Navigate to the feed
     navigation.navigate('feed' as never);
-
   }
 
   return (
