@@ -4,12 +4,15 @@ import { useNostrUser } from '@/lib/useNostrUser';
 import { NDKEvent } from '@nostr-dev-kit/ndk';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { useNavigation } from 'expo-router';
 
 export default function CastScreen() {
   useNostrUser()
   const ndk = useNDK();
   const [spell, setSpell] = useState('Teach me cool stuff from the newest papers on arxiv.');
   const isSpellShort = spell.length < 10;
+  const navigation = useNavigation();
+
 
   const submitIt = async () => {
     if (!ndk) return
@@ -19,8 +22,11 @@ export default function CastScreen() {
     ndkEvent.content = spell;
     console.log("Publishing...");
 
-    const publishedRelays = await ndkEvent.publish();
+    ndkEvent.publish();
     console.log("Submitted")
+    // Navigate to the feed
+    navigation.navigate('feed' as never);
+
   }
 
   return (
