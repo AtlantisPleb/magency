@@ -24,8 +24,7 @@ Magency is the first application to use IGE in agents let loose across the inter
 # IGE implementation - actual
 1. User Prompt: The user enters a prompt on the "Cast spells" tab of the Magency app, such as "What can you learn from the newest papers on arxiv?"
 2. A signed Nostr event, kind 38000 (or kind 1 with tags), is sent to the network via primarily our relay at wss://magency.nostr1.com - kind [TBD] specific for MAGENCY SPELL
-3. Magency service (NodeJS) is listening for those events and runs the algorithm
-- When the Magency Spell event is received, it passes it to the agent
+3. Magency service (NodeJS) is listening for those events and runs the algorithm, sending updates as kind 38001s that are processed by the app
 
 # IGE implementation - kinda, soon
 
