@@ -2,7 +2,7 @@ import 'text-encoding-polyfill'
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import * as SecureStore from 'expo-secure-store';
-import NDK, { NDKPrivateKeySigner } from '@nostr-dev-kit/ndk';
+import NDK, { NDKEvent, NDKPrivateKeySigner } from '@nostr-dev-kit/ndk';
 import { generatePrivateKey, getPublicKey } from 'nostr-tools_1_1_1';
 
 const expoSecureStorage = {
@@ -15,8 +15,10 @@ interface State {
   userPubkey: string | null,
   userSecret: string | null,
   ndkInstance: NDK | null,
+  events: NDKEvent[],
   setUserPubkey: (pubkey: string) => void,
   setUserSecret: (secret: string) => void,
+  addEvent: (event: NDKEvent) => void,
   initializeNDK: () => void
 }
 
@@ -26,10 +28,14 @@ export const useStore = create<State>()(
       userPubkey: null,
       userSecret: null,
       ndkInstance: null,
+      events: [],
       setUserPubkey: (userPubkey) => set({ userPubkey }),
       setUserSecret: (userSecret) => set({ userSecret }),
+      addEvent: (event: NDKEvent) => set((state) => ({
+        events: [...state.events, event],
+      })),
       initializeNDK: async () => {
-        const { userSecret, setUserPubkey, setUserSecret } = get();
+        const { userSecret, setUserPubkey, setUserSecret, addEvent } = get();
 
         let sk, pk;
 
@@ -66,6 +72,21 @@ export const useStore = create<State>()(
         set({ ndkInstance: ndk });
 
         await ndk.connect(5000);
+
+        // Define the event kinds to subscribe to
+        const eventKinds = [38000, 38001, 38002, 38003];
+
+        // Subscribe to the specified event kinds
+        const subscription = ndk.subscribe(
+          { kinds: eventKinds },
+          { closeOnEose: false }
+        );
+
+        // Listen for events and log them as they are received
+        subscription.on("event", (event: NDKEvent) => {
+          console.log("Received event:", event.id);
+          addEvent(event); // Add the received event to the store
+        });
       },
     }),
     {
