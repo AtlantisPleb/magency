@@ -45,14 +45,14 @@ export default function TabLayout() {
           headerShown: false
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="magents"
         options={{
           title: 'Magents',
           tabBarIcon: ({ color }) => <MaterialCommunityIcon name="robot-happy-outline" color={color} />,
           headerShown: false
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="account"
         options={{

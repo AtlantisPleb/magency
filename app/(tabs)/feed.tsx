@@ -4,7 +4,12 @@ import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { useStore } from '@/lib/store'; // Update with your actual store import path
 
 export default function FeedScreen() {
-  const events = useStore((state) => state.events);
+  // const events = useStore((state) => state.events);
+
+  // Usage example
+  const events = useStore((state) => state.getEventsInReverseChronologicalOrder());
+  // console.log("Events in reverse chronological order:", sortedEvents);
+
 
   // Function to format JSON string
   const formatJson = (jsonString) => {
@@ -18,13 +23,13 @@ export default function FeedScreen() {
 
   return (
 
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView contentContainerStyle={feedstyles.container}>
       {events.length === 0 ? (
         <Text>No events available.</Text>
       ) : (
         events.map((event, index) => (
-          <View key={index} style={styles.eventContainer}>
-            <Text style={styles.eventId}>
+          <View key={index} style={feedstyles.eventContainer}>
+            <Text style={feedstyles.eventId}>
               {formatJson(event.content)}
             </Text>
           </View>
@@ -35,7 +40,7 @@ export default function FeedScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+export const feedstyles = StyleSheet.create({
   container: {
     padding: 16,
     paddingTop: 80

@@ -19,6 +19,7 @@ interface State {
   setUserPubkey: (pubkey: string) => void,
   setUserSecret: (secret: string) => void,
   addEvent: (event: NDKEvent) => void,
+  getEventsInReverseChronologicalOrder: () => NDKEvent[],
   initializeNDK: () => void
 }
 
@@ -34,6 +35,9 @@ export const useStore = create<State>()(
       addEvent: (event: NDKEvent) => set((state) => ({
         events: [...state.events, event],
       })),
+      getEventsInReverseChronologicalOrder: () => {
+        return get().events.slice().sort((a, b) => b.created_at - a.created_at);
+      },
       initializeNDK: async () => {
         const { userSecret, setUserPubkey, setUserSecret, addEvent } = get();
 
