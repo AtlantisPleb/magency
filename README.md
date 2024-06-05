@@ -4,9 +4,9 @@ Command your AI agent swarm on the go!
 
 - Spawn agents for multiple tasks
 - Agents learn from other agents
-- Easy mobile app (Android & iOS) or web app
+- Cross-platform app (Android/iOS/web)
 
-![school](https://github.com/AtlantisPleb/magency/assets/14167547/e2193a2f-e5e1-43b4-b6cf-67e1d335d524)
+![makea](https://github.com/AtlantisPleb/magency/assets/14167547/f145d3a1-47b9-4a20-9aff-4a92a0006f2c)
 
 # Tech stack
 - [React Native](https://reactnative.dev/) via [Expo](https://expo.dev/) - Cross-platform app
@@ -38,3 +38,5 @@ Magency is the first application to use IGE in agents let loose across the inter
 6. Update Archive: After taking the action, update the archive with any interesting new states discovered.
 7. Repeat: Repeat steps 4-6 for a specified number of iterations or until a desired outcome is achieved.
 8. Visualization: Present the results to the user in a user-friendly format, such as a summary of key findings or insights from the explored websites.
+
+![school](https://github.com/AtlantisPleb/magency/assets/14167547/e2193a2f-e5e1-43b4-b6cf-67e1d335d524)
