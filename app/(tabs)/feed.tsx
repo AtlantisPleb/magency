@@ -6,26 +6,39 @@ import { useStore } from '@/lib/store'; // Update with your actual store import 
 export default function FeedScreen() {
   const events = useStore((state) => state.events);
 
+  // Function to format JSON string
+  const formatJson = (jsonString) => {
+    try {
+      const jsonObject = JSON.parse(jsonString);
+      return JSON.stringify(jsonObject, null, 2);
+    } catch (error) {
+      return jsonString;
+    }
+  };
+
   return (
-    <Screen title="Feed">
-      <ScrollView contentContainerStyle={styles.container}>
-        {events.length === 0 ? (
-          <Text>No events available.</Text>
-        ) : (
-          events.map((event, index) => (
-            <View key={index} style={styles.eventContainer}>
-              <Text style={styles.eventId}>{event.id}</Text>
-            </View>
-          ))
-        )}
-      </ScrollView>
-    </Screen>
+
+    <ScrollView contentContainerStyle={styles.container}>
+      {events.length === 0 ? (
+        <Text>No events available.</Text>
+      ) : (
+        events.map((event, index) => (
+          <View key={index} style={styles.eventContainer}>
+            <Text style={styles.eventId}>
+              {formatJson(event.content)}
+            </Text>
+          </View>
+        ))
+      )}
+    </ScrollView>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    paddingTop: 80
   },
   eventContainer: {
     marginBottom: 16,
